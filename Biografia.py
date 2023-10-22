@@ -9,10 +9,26 @@ PAGES = {
     # 'Skill': Skill.pagina
 }
 
-def mostra_pagina_selezionata(selezione):
+LANGUAGES = {
+    "Italiano": "resources/flags/italy_flag.png",
+    "English": "resources/flags/uk_flag.png",
+}
+
+translations = {
+    'Italiano': {
+        'selectBoxLingua': 'Seleziona la lingua',
+        'selectBoxPage': 'Vai a',
+    },
+    'English': {
+        'selectBoxLingua': 'Select language',
+        'selectBoxPage': 'Go to',
+    },
+}
+
+def mostra_pagina_selezionata(selezione, lingua):
     pagina = PAGES.get(selezione)
     if pagina:
-        pagina()
+        pagina(lingua)
 
 st.markdown("""
     <style>
@@ -43,6 +59,12 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-selezione = st.selectbox("Vai a:", PAGES.keys(), 0)
+t = translations['Italiano']
+
+lingua = st.selectbox("Lingua", LANGUAGES.keys(), label_visibility='hidden')
+
+t = translations[lingua]
+
+selezione = st.selectbox(t['selectBoxPage'], PAGES.keys(), 0)
 if selezione:
-    mostra_pagina_selezionata(selezione)
+    mostra_pagina_selezionata(selezione, lingua)
