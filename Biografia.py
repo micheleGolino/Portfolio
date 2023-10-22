@@ -6,7 +6,7 @@ PAGES = {
     'Formazione': Formazione.pagina,
     'Esperienze': Esperienze.pagina,
     'Certificazioni': Certificazioni.pagina,
-    'Skill': Skill.pagina
+    # 'Skill': Skill.pagina
 }
 
 def mostra_pagina_selezionata(selezione):
