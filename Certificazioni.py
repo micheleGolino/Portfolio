@@ -41,6 +41,3 @@ def pagina():
     st.markdown("##### CCNA Routing and Switching: Introduction to Networks")
     st.markdown("Data di rilascio: Maggio 2018")
     st.markdown("- Competenze: Tecnologie Cisco · Certificazione Cisco")
-
-# Chiamare la funzione pagina per visualizzare il contenuto
-pagina()

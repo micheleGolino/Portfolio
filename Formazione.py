@@ -69,6 +69,3 @@ def pagina():
         - Specializzazione: Informatica Abacus
         - Competenze: Informatica
     """)
-
-# Chiamare la funzione pagina per visualizzare il contenuto
-pagina()

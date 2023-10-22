@@ -42,6 +42,7 @@ st.markdown("""
         <h1>Michele Golino</h1>
     </div>
     """, unsafe_allow_html=True)
-selezione = st.selectbox("Vai a:", PAGES.keys())
 
-mostra_pagina_selezionata(selezione)
+selezione = st.selectbox("Vai a:", PAGES.keys(), 0)
+if selezione:
+    mostra_pagina_selezionata(selezione)

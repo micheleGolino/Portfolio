@@ -93,6 +93,3 @@ def pagina():
         **Competenze**:
         - Sviluppo di software
     """)
-
-# Chiamare la funzione pagina per visualizzare il contenuto
-pagina()
