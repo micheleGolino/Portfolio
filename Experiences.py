@@ -1,6 +1,6 @@
 import streamlit as st
 
-def pagina(lingua):
+def page(language):
     st.markdown("""
         <style>
             @keyframes fadeIn {
@@ -102,7 +102,7 @@ def pagina(lingua):
             """,
         },
         'English': {
-            'contentTitle': "# Experience",
+            'contentTitle': "# Experiences",
             'contentTitleAgm': "## AGM Solutions",
             'contentSubtitleAgm1': "### Software Engineer",
             'contentDateAgm1': "February 2022 - Present, Turin, Piedmont, Italy",
@@ -164,7 +164,7 @@ def pagina(lingua):
         }
     }
 
-    t = translations[lingua]
+    t = translations[language]
 
     st.markdown(t['contentTitle'])
 

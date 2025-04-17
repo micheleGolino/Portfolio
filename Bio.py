@@ -5,14 +5,13 @@ def get_image_as_base64_string(img_path):
     with open(img_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode()
 
-# Ottieni le immagini come stringhe base64
+# Obtain the image as a base64 string
 profile_image_str = get_image_as_base64_string("resources/profile.jpg")
 github_icon_str = get_image_as_base64_string("resources/github.png")
 linkedin_icon_str = get_image_as_base64_string("resources/linkedin.png")
 email_icon_str = get_image_as_base64_string("resources/email.png")
 
-def pagina(lingua):
-
+def page(language):
     translations = {
         'Italiano': {
             'arrowTitle': 'Scorri per la sezione contatti',
@@ -20,17 +19,27 @@ def pagina(lingua):
             'linkedinTitle': 'Consulta il mio profilo LinkedIn',
             'emailTitle': 'Contattami via mail',
             'contentTitle': "### Biografia",
-            'contentBox': """
-            👋 Ciao, sono Michele! Sono un tech enthusiast con una passione per lo sviluppo software, l'innovazione e le nuove tecnologie.
+            'contentBox': '''
+👋 Ciao, sono Michele!
 
-            💻 Carriera Professionale: Ho messo piede nel settore dello sviluppo software 4 anni fa come sviluppatore Full Stack. Da quel momento, ho lavorato su una gamma diversificata di progetti B2B e B2C, con una predilezione per le soluzioni di backend.
+Sono un Software Engineer con 6 anni di esperienza nello sviluppo full-stack, con una particolare attenzione al backend. Mi dedico alla creazione di sistemi Java ad alte prestazioni e applicazioni web interattive in Python. La mia passione per l’innovazione e l’adozione delle migliori pratiche, come il Clean Code.
 
-            🛠️ Interessi Tecnologici: Sono particolarmente interessato allo sviluppo di microservizi e dall'automazione dei processi. Mi piace utilizzare tecnologie all'avanguardia ed innovative per rendere tutto più efficiente e scalabile.
+💻 Specializzazione in soluzioni Backend
 
-            🏢 Ruolo Attuale: Sono attualmente un Software Engineer a tempo pieno, con responsabilità che vanno dalla progettazione alla manutenzione del software attraverso tutto il suo ciclo di vita.
+Dopo aver iniziato come sviluppatore full-stack, ho scelto di focalizzarmi sulla progettazione di microservizi. Utilizzo principalmente Java con il framework Quarkus per costruire sistemi robusti, leggeri e facilmente aggiornabili. Per le interfacce web, mi affido a Python e Streamlit, trasformando dati complessi in dashboard intuitive e reattive.
 
-            📖 Formazione in Corso: Sto per completare il mio percorso accademico in Ingegneria Informatica e dell'Automazione. Questa esperienza accademica mi ha fornito una solida base teorica, permettendomi di affinare ulteriormente le mie competenze pratiche e di rimanere aggiornato sulle ultime tendenze del settore.
-        """,
+🛠️ Tecnologie e Automazione
+
+Credo nell’automazione intelligente e nella semplificazione dei processi lavorativi. Progetto soluzioni end-to-end integrando strumenti moderni, riducendo i tempi di sviluppo e migliorando l’esperienza utente. La mia esperienza include l’integrazione di sistemi di autenticazione sicuri utilizzando Keycloak e l’implementazione di applicazioni web interattive con Streamlit.
+
+🏢 Esperienza Professionale
+
+Ho gestito progetti B2B e B2C dall’ideazione alla manutenzione, collaborando con team multidisciplinari per garantire che ogni componente software sia allineato con gli obiettivi aziendali e facilmente gestibile nel tempo.
+
+🎓 Formazione e Aggiornamento
+
+Ho conseguito una laurea in Ingegneria Informatica e dell’Automazione, che mi ha fornito una solida base pratica. Inoltre, ho frequentato la Apple Developer Academy, collaborando con ingegneri esperti nello sviluppo di applicazioni iOS. Sono impegnato in un continuo aggiornamento professionale, esplorando nuove tecnologie e metodologie per migliorare le mie competenze e offrire soluzioni all’avanguardia.
+''',
             'contentContacts': "### Contatti",
         },
         'English': {
@@ -39,88 +48,48 @@ def pagina(lingua):
             'linkedinTitle': 'See my LinkedIn profile',
             'emailTitle': 'Send me a mail',
             'contentTitle': "### Biography",
-            'contentBox': """
-            👋 Hello, I'm Michele! I'm a tech enthusiast with a passion for software development, innovation, and emerging technologies.
+            'contentBox': '''
+👋 Hello, I’m Michele!
 
-            💻 Professional Career: I stepped into the software development industry 4 years ago as a Full Stack Developer. Since then, I've worked on a diverse range of B2B and B2C projects, with a particular fondness for backend solutions.
+I am a Software Engineer with 6 years of experience in full-stack development, with a particular focus on backend solutions. I specialize in creating high-performance Java systems and interactive web applications using Python. My passion for innovation and adopting best practices, such as Clean Code, guides me in developing efficient and maintainable solutions. 
 
-            🛠️ Technological Interests: I have a keen interest in developing microservices and automating processes. I enjoy using cutting-edge and innovative technologies to make everything more efficient and scalable.
+💻 Specialization in Backend Solutions
 
-            🏢 Current Role: I'm currently employed as a full-time Software Engineer, with responsibilities ranging from design to maintenance throughout the entire software lifecycle.
+After starting as a full-stack developer, I chose to focus on microservices design. I primarily use Java with the Quarkus framework to build robust, lightweight, and easily upgradable systems. For web interfaces, I rely on Python and Streamlit, transforming complex data into intuitive and responsive dashboards.
 
-            📖 Ongoing Education: I'm about to complete my academic journey in Computer Engineering and Automation. This educational experience has provided me with a solid theoretical foundation, allowing me to further refine my practical skills and stay updated on the latest industry trends.
-            """,
+🛠️ Technologies and Automation
+
+I believe in intelligent automation and simplifying work processes. I design end-to-end solutions by integrating modern tools, reducing development time, and enhancing user experience. My experience includes integrating secure authentication systems using Keycloak and implementing interactive web applications with Streamlit.
+
+🏢 Professional Experience
+
+I have managed B2B and B2C projects from conception to maintenance, collaborating with multidisciplinary teams to ensure each software component aligns with business objectives and remains easily manageable over time.
+
+🎓 Education and Training
+
+I hold a degree in Computer Engineering and Automation, which has provided me with a solid practical foundation. Additionally, I attended the Apple Developer Academy, collaborating with experienced engineers in developing iOS applications. I am committed to continuous professional development, exploring new technologies and methodologies to enhance my skills and deliver cutting-edge solutions.
+''',
             'contentContacts': "### Contacts",
         }
     }
 
-    t = translations[lingua]
+    t = translations[language]
 
-    st.markdown(f"""
-        <div style="display: flex; justify-content: center;">
-            <img src="data:image/jpg;base64,{profile_image_str}" alt="Foto Profilo" style="border-radius: 50%; width: 150px;">
+    short_description = t['contentBox'].split("\n")[1].strip()
+
+    st.markdown(f'''
+        <div style="max-width: 500px; margin: 0 auto 30px auto; background: var(--secondary-background-color); border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.10); padding: 32px 24px 24px 24px; text-align: center; position: relative; color: var(--text-color);">
+            <img src="data:image/jpg;base64,{profile_image_str}" alt="Foto Profilo" style="border-radius: 50%; width: 120px; border: 4px solid #0a66c2; margin-bottom: 12px;">
+            <h2 style="margin-bottom: 0; color: #0a66c2; font-size: 2rem;">Michele Golino</h2>
+            <h4 style="margin-top: 4px; color: var(--text-color); opacity: 0.7; font-weight: 400;">Software Engineer | Full Stack Developer</h4>
+            <p style="margin-top: 16px; font-size: 1.1rem; line-height: 1.5;">{short_description}</p>
+            <div style="margin-top: 18px;">
+                <a href="https://github.com/micheleGolino" title="{t['gitHubTitle']}" style="margin: 0 10px;"><img src="data:image/png;base64,{github_icon_str}" alt="GitHub" style="width: 32px;"></a>
+                <a href="https://www.linkedin.com/in/michelegolino1994" title="{t['linkedinTitle']}" style="margin: 0 10px;"><img src="data:image/png;base64,{linkedin_icon_str}" alt="LinkedIn" style="width: 32px;"></a>
+                <a href="mailto:michelegolino94@gmail.com" title="{t['emailTitle']}" style="margin: 0 10px;"><img src="data:image/png;base64,{email_icon_str}" alt="Email" style="width: 32px;"></a>
+            </div>
         </div>
-    """, unsafe_allow_html=True)
+    ''', unsafe_allow_html=True)
 
     st.markdown(t['contentTitle'])
-
     st.markdown(t['contentBox'])
-
-    st.markdown(f"""
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-        <style>
-            @keyframes bounce {{
-                0%, 20%, 50%, 80%, 100% {{
-                    transform: translateY(0);
-                }}
-                40% {{
-                    transform: translateY(-30px);
-                }}
-                60% {{
-                    transform: translateY(-15px);
-                }}
-            }}
-            .arrow {{
-                text-align: center;
-                animation: bounce 2s infinite;
-                margin-top: 20px;
-                margin-bottom: 20px;
-                opacity: 0.6;
-                visibility: visible;
-            }}
-            @media (max-width: 768px) {{
-                .arrow {{
-                    display: none;
-                }}
-            }}
-        </style>
-        <div class="arrow" title="{t['arrowTitle']}">
-            <i class="fas fa-arrow-down"></i>
-        </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("---")
-
-    st.markdown(t['contentContacts'])
-    
-    st.write("""
-        <style>
-            .contact-icons a {
-                display: inline-block;
-                transition: transform 0.2s;
-            }
-            .contact-icons a:hover {
-                transform: scale(1.5);
-            }
-        </style>
-""", unsafe_allow_html=True)
-
-    st.markdown(f"""
-        <div class="contact-icons">
-            <a href="https://github.com/micheleGolino" title="{t['gitHubTitle']}"><img src="data:image/png;base64,{github_icon_str}" alt="GitHub" style="width: 40px;"></a>
-            <a href="https://www.linkedin.com/in/michelegolino1994" title="{t['linkedinTitle']}"><img src="data:image/png;base64,{linkedin_icon_str}" alt="LinkedIn" style="width: 40px;"></a>
-            <a href="mailto:michelegolino94@gmail.com" title="{t['emailTitle']}"><img src="data:image/png;base64,{email_icon_str}" alt="Email" style="width: 40px;"></a>
-        </div>
-""", unsafe_allow_html=True)
-    
